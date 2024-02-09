@@ -12,7 +12,7 @@ export default function NavigationMenu() {
           <li>
             <Button variant="outline" asChild>
               <Link href="/" className="text-balance">
-                Sign up
+                Start now
               </Link>
             </Button>
           </li>
