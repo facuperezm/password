@@ -1,14 +1,13 @@
-import CardSpotlight from "@/components/card";
+import CardSpotlight from "@/components/animated-card";
 import { Container } from "@/components/container";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <Container className="max-w-5xl">
       <section className="mx-auto flex w-full max-w-5xl flex-col items-center justify-center gap-4 pt-24 pb-20 text-center md:pt-32 md:pb-20">
-        <h1 className="text-balance text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold">
+        <h1 className="text-balance text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold">
           Absolutely easy password management
         </h1>
         <p className="max-w-[42rem] text-pretty leading-normal text-muted-foreground sm:text-xl sm:leading-8">
