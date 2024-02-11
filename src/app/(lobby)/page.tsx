@@ -21,7 +21,7 @@ export default function Home() {
           </Button>
         </div>
       </section>
-      <section className="grid grid-cols-1 grid-rows-[repeat(6,minmax(0,1fr))] gap-2 md:grid-cols-2 md:grid-rows-2 lg:grid-cols-4">
+      <section className="grid grid-cols-1 grid-rows-[repeat(6,minmax(0,1fr))] gap-2 md:grid-cols-2 md:grid-rows-1 lg:grid-cols-4">
         <CardSpotlight
           title="Secure"
           description=" We help you manage your passwords securely and easily. No more
