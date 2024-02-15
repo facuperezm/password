@@ -4,7 +4,6 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/components/ui/use-toast";
-import { useFormState, useFormStatus } from "react-dom";
 
 import {
   Form,
@@ -17,7 +16,6 @@ import {
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import api from "@/app/api";
-import signupAction from "../actions/auth";
 import { ToastAction } from "../ui/toast";
 
 const authSchema = z.object({
@@ -26,13 +24,7 @@ const authSchema = z.object({
   email: z.string().email(),
 });
 
-const initialState = {
-  message: "",
-};
-
 export default function SignUpForm() {
-  // const [state, formAction] = useFormState(signupAction, initialState);
-
   const form = useForm<z.infer<typeof authSchema>>({
     resolver: zodResolver(authSchema),
     defaultValues: {
@@ -53,7 +45,7 @@ export default function SignUpForm() {
             action: <ToastAction altText="Close">Close</ToastAction>,
           });
         },
-        (error) => {
+        () => {
           toast({
             title: "Error",
             description: "Please enter a valid email",
@@ -64,7 +56,7 @@ export default function SignUpForm() {
     } catch (error) {
       toast({
         title: "Error",
-        description: "Please enter a valid email",
+        description: `${error}`,
         action: <ToastAction altText="Close">Close</ToastAction>,
       });
     }
@@ -72,11 +64,7 @@ export default function SignUpForm() {
 
   return (
     <Form {...form}>
-      <form
-        // action={formAction}
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-3"
-      >
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
         <FormField
           control={form.control}
           name="firstName"
@@ -116,32 +104,6 @@ export default function SignUpForm() {
             </FormItem>
           )}
         />
-        {/* <FormField
-          control={form.control}
-          name="password"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Password</FormLabel>
-              <FormControl>
-                <Input placeholder="*****" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        /> */}
-        {/* <FormField
-          control={form.control}
-          name="repeatedPassword"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Repeat password</FormLabel>
-              <FormControl>
-                <Input placeholder="*****" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        /> */}
         <Button type="submit">Submit</Button>
       </form>
     </Form>

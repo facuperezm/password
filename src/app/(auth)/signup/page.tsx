@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { UserAuthForm } from "@/components/user-auth-form";
+import { UserAuthForm } from "@/components/forms/user-auth-form";
 import SignUpForm from "@/components/forms/sign-up-form";
 
 export default function SignUpPage() {
