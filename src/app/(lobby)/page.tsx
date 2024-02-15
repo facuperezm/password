@@ -17,7 +17,7 @@ export default function Home() {
 
         <div className="flex flex-wrap items-center justify-center gap-4">
           <Button variant="outline" asChild>
-            <Link href="/login">I want my passwords secure</Link>
+            <Link href="/sign-up">I want my passwords secure</Link>
           </Button>
         </div>
       </section>
