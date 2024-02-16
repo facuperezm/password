@@ -17,6 +17,7 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import api from "@/app/api";
 import { ToastAction } from "../ui/toast";
+import { useRouter } from "next/navigation";
 
 const authSchema = z.object({
   firstName: z.string().min(2).max(20),
@@ -34,25 +35,19 @@ export default function SignUpForm() {
     },
   });
   const { toast } = useToast();
+  const router = useRouter();
 
   function onSubmit(data: z.infer<typeof authSchema>) {
     try {
-      api.auth.signup(data).then(
-        (response) => {
-          toast({
-            title: "Check your email! ",
-            description: `A “magic link” has been emailed to you at ${data.email}, containing a link you can click to sign up. It should show up in your inbox within 30 seconds or so.`,
-            action: <ToastAction altText="Close">Close</ToastAction>,
-          });
-        },
-        () => {
-          toast({
-            title: "Error",
-            description: "Please enter a valid email",
-            action: <ToastAction altText="Close">Close</ToastAction>,
-          });
-        }
-      );
+      api.auth.signup(data).then((response) => {
+        console.log("successful", response);
+        toast({
+          title: "Check your email! ",
+          description: `A “magic link” has been emailed to you at ${data.email}, containing a link you can click to sign up. It should show up in your inbox within 30 seconds or so.`,
+          action: <ToastAction altText="Close">Close</ToastAction>,
+        });
+        router.push("/check-email");
+      });
     } catch (error) {
       toast({
         title: "Error",

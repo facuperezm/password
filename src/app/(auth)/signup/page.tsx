@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-import { UserAuthForm } from "@/components/forms/user-auth-form";
 import SignUpForm from "@/components/forms/sign-up-form";
 
 export default function SignUpPage() {
@@ -17,23 +16,17 @@ export default function SignUpPage() {
             </p>
           </div>
           <SignUpForm />
-          <p className="px-8 text-center text-sm text-muted-foreground">
-            By clicking continue, you agree to our{" "}
-            <Link
-              href="/terms"
-              className="underline underline-offset-4 hover:text-primary"
-            >
-              Terms of Service
-            </Link>{" "}
-            and{" "}
-            <Link
-              href="/privacy"
-              className="underline underline-offset-4 hover:text-primary"
-            >
-              Privacy Policy
-            </Link>
-            .
-          </p>
+          <div className="flex flex-col text-center">
+            <p className="text-sm text-muted-foreground">
+              Already have an account?{" "}
+              <Link
+                href="/signin"
+                className="hover:underline underline-offset-4 hover:text-primary"
+              >
+                Log in
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     </>
