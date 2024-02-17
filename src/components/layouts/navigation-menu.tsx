@@ -11,14 +11,14 @@ export default function NavigationMenu() {
         <ul className="flex items-center gap-4">
           <li>
             <Button variant="outline" asChild>
-              <Link href="/" className="text-balance">
+              <Link href="/signup" className="text-balance">
                 Start now
               </Link>
             </Button>
           </li>
           <li>
             <Button variant="ghost" asChild>
-              <Link href="/" className="text-balance">
+              <Link href="/signin" className="text-balance">
                 Login
               </Link>
             </Button>
