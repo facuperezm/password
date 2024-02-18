@@ -11,5 +11,5 @@ export async function GET(request: NextRequest) {
     httpOnly: true,
   });
 
-  return redirect("/");
+  return redirect("/dashboard");
 }
